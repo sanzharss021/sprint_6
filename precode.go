@@ -82,7 +82,7 @@ func getTask(w http.ResponseWriter, r *http.Request) {
 
 	task, ok := tasks[id]
 	if !ok {
-		http.Error(w, "Задача не найдена", http.StatusBadRequest)
+		http.Error(w, " Задача не найдена ", http.StatusBadRequest)
 		return
 	}
 
