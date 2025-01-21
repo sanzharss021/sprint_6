@@ -71,6 +71,12 @@ func postTask(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	_, exists := tasks[task.ID]
+	if exists {
+		http.Error(w, "Задача существует", http.StatusBadRequest)
+		return
+	}
+
 	tasks[task.ID] = task
 
 	w.Header().Set("Content-Type", "application/json")
